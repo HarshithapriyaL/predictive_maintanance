@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Industrial Intelligence Command Center — Dark Mode Native */
+    --bg-main: #0B1026;
+    --bg-secondary: #10162D;
+    --bg-card: #151B35;
+    --bg-elevated: #1B2341;
+    --color-border: #303955;
+
+    --text-primary: #F4F6FC;
+    --text-secondary: #B8B9E8;
+    --text-muted: #929BB9;
+
+    --brand-indigo: #030164;
+    --brand-royal: #363199;
+    --brand-teal: #2D7495;
+    --brand-yellow: #E8E085;
+
+    --status-success: #55C99A;
+    --status-warning: #F2B84B;
+    --status-critical: #FF6B78;
+    --status-info: #70BDE0;
+
+    /* shadcn-compatible variable mapping */
+    --background: 225 58% 9%;
+    --foreground: 225 33% 98%;
+    --card: 226 44% 15%;
+    --card-foreground: 225 33% 98%;
+    --popover: 225 52% 11%;
+    --popover-foreground: 225 33% 98%;
+    --primary: 239 100% 33%;
+    --primary-foreground: 225 33% 98%;
+    --secondary: 232 60% 18%;
+    --secondary-foreground: 225 33% 98%;
+    --muted: 226 44% 15%;
+    --muted-foreground: 226 18% 66%;
+    --accent: 239 100% 40%;
+    --accent-foreground: 225 33% 98%;
+    --destructive: 354 100% 71%;
+    --destructive-foreground: 225 33% 98%;
+    --border: 226 24% 26%;
+    --input: 226 24% 26%;
+    --ring: 239 100% 40%;
+    --radius: 0.625rem;
+
+    --chart-1: 199 54% 38%;
+    --chart-2: 52 63% 72%;
+    --chart-3: 239 100% 33%;
+    --chart-4: 152 44% 58%;
+    --chart-5: 354 100% 71%;
+
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4 {
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: rgba(54, 49, 153, 0.4);
+    color: var(--text-primary);
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-muted);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(48, 57, 85, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(48, 57, 85, 0.15) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
